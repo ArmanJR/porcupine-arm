@@ -1,3 +1,9 @@
+# Porcupine-ARM
+
+This is an unofficial, [monkey-patched](https://en.wikipedia.org/wiki/Monkey_patch) version of **Porcupine** ported to Linux aarch64 and tested on NVIDIA Jetson AGX Orin. It uses Raspberry-PI's `cortex-a76-aarch64` files and configs to run on Jetson's `cortex-a78ae-aarch64`.
+
+---
+
 # Porcupine
 
 [![GitHub release](https://img.shields.io/github/release/Picovoice/Porcupine.svg)](https://github.com/Picovoice/Porcupine/releases)
