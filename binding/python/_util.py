@@ -47,6 +47,8 @@ def _pv_linux_machine(machine):
         return 'cortex-a72' + arch_info
     elif "0xd0b" == cpu_part:
         return "cortex-a76" + arch_info
+    elif "0xd42" == cpu_part:
+        return "cortex-a78ae-aarch64"
     elif machine == 'armv7l':
         log.warning(
             'WARNING: Please be advised that this device (CPU part = %s) is not officially supported by Picovoice. '
@@ -90,6 +92,8 @@ def pv_library_path(relative):
     elif _PV_SYSTEM == 'Linux':
         if _PV_MACHINE == 'x86_64':
             return os.path.join(os.path.dirname(__file__), relative, 'lib/linux/x86_64/libpv_porcupine.so')
+        elif _PV_MACHINE == 'cortex-a78ae-aarch64':
+            return os.path.join(os.path.dirname(__file__), relative, 'lib/raspberry-pi/cortex-a76-aarch64/libpv_porcupine.so')
         elif _PV_MACHINE in _RASPBERRY_PI_MACHINES:
             return os.path.join(
                 os.path.dirname(__file__),
@@ -112,7 +116,7 @@ def pv_keyword_files_subdir():
     if _PV_SYSTEM == 'Darwin':
         return 'mac'
     elif _PV_SYSTEM == 'Linux':
-        if _PV_MACHINE == 'x86_64':
+        if _PV_MACHINE == 'x86_64' or _PV_MACHINE == 'cortex-a78ae-aarch64':
             return 'linux'
         elif _PV_MACHINE in _RASPBERRY_PI_MACHINES:
             return 'raspberry-pi'
